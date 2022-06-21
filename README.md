@@ -1,5 +1,8 @@
 # JupyterPythonDataScience
 Python Data Science note
+
+Data Requirements -> Data Collection -> Data Preparation -> Modeling 
+
 Libraries to import:
 
 import pandas as pd
@@ -117,6 +120,19 @@ sns.catplot(x="S/N", y="SDP votes", data=data)
 
 # In[ ]:
 
+import pandas as pd
+import pandas.io.sql as psql
+from sqlalchemy import create_engine
+import psycopg2 as pg
 
+user = ''
+port = ''
+db = ''
+host = ''
+pwd = ''
+
+engine = create_engine(f"postgresql://{user}:{pwd}@{host}:{port}/{db}")
+order_sql = "select * from name-of-database;"
+news = pd.read_sql_query(order_sql, engine)
 
 
